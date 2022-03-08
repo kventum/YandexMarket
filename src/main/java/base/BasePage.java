@@ -10,7 +10,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BasePage {
+public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait driverWait;
 
@@ -18,6 +18,10 @@ public class BasePage {
         this.driver = driver;
         driverWait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
+
+    public BasePage() {}
+
+    public NavBar navBar = new NavBar();
 
     // метод ожидания обертки
     public void waitVisibility (By by) {

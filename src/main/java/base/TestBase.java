@@ -9,15 +9,14 @@ import pages.MainPage;
 import java.time.Duration;
 
 public class TestBase {
-    WebDriver driver;
+    WebDriver driver = new ChromeDriver();
     public MainPage mainPage;
+    public BaseRouter baseRouter = new BaseRouter();
 
     public void start() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        mainPage = new MainPage(driver);
     }
 
     @BeforeEach

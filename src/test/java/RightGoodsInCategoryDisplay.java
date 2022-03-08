@@ -5,7 +5,7 @@ public class RightGoodsInCategoryDisplay extends TestBase {
 
     @Test
     public void selectCategory() {
-        mainPage.checkLogo();
+        baseRouter.mainPage.checkLogo();
     }
 
 }
