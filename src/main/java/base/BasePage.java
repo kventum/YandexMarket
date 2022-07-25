@@ -1,27 +1,20 @@
 package base;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+/**
+ * Базовый класс страниц
+ */
 public abstract class BasePage {
-    public WebDriver driver;
+    protected static WebDriver driver;
     public WebDriverWait driverWait;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        driverWait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    public static void setDriver(WebDriver webDriver) {
+        driver = webDriver;
     }
-
-    public BasePage() {}
-
-    public NavBar navBar = new NavBar();
 
     // метод ожидания обертки
     public void waitVisibility (By by) {
@@ -35,8 +28,8 @@ public abstract class BasePage {
     }
 
     // отображение элемента
-    public void elementIsDisplayed(By by) {
-        waitVisibility(by);
-        assertTrue(driver.findElement(by).isDisplayed());
-    }
+    /**public void elementIsDisplayed(WebElement element) {
+        waitVisibility(element);
+        assertTrue(element.isDisplayed());
+    }*/
 }

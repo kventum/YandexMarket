@@ -1,25 +1,14 @@
 package base;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class NavBar {
+public class NavBar extends BasePage {
 
-    public By yaLogo = new By.ByXPath("//a[@href='https://yandex.ru']");
+    @FindBy(className = "login")
+    public WebElement signIn;
 
-    public By marketLogo = new By.ByXPath("//a[@id='logoPartMarket']/span[text()='Маркет']");
+    @FindBy(xpath = "//a[@title='My Store']")
+    public WebElement Logo;
 
-    public By catalogButton = new By.ById("catalogPopupButton");
-
-    public By searchBar = new By.ById("header-search");
-
-    public By searchButton = new By.ByXPath("//button/span[contains(., 'Найти')]/..");
-
-    public By yaPlus = new By.ByXPath("//div[@data-zone-name='yaPlusBadge']/div/div");
-
-    public By orders = new By.ByXPath("");
-
-    public By favourite = new By.ByXPath("");
-
-    public By account = new By.ByXPath("");
 }
-//a[@id='logoPartMarket']/span[text()='Маркет']

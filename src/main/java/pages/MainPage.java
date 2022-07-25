@@ -1,15 +1,32 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.By;
+import base.Configuration;
+import base.NavBar;
+import org.openqa.selenium.support.PageFactory;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+/**
+ * Класс главной страницы
+ */
 public class MainPage extends BasePage {
     public MainPage() {
-        super();
+        driver.get(Configuration.site_url);
+        PageFactory.initElements(driver, this);
+    }
+
+    public NavBar navBar = new NavBar();
+    public AuthenticationPage authenticationPage = new AuthenticationPage();
+
+
+    public AuthenticationPage clickSignIn() {
+        navBar.signIn.click();
+        return authenticationPage;
     }
 
     public MainPage checkLogo() {
-        elementIsDisplayed(By.xpath("//a[@id='logoPartMarket']/span[text()='Маркет']"));
+        assertTrue(navBar.Logo.isDisplayed());
         return this;
     }
 }
